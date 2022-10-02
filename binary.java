@@ -15,7 +15,7 @@ public class binary
         sn=sc.nextInt();
         while(sp<=ep)
         {
-            mp=(sp+ep)/2;
+            mp=sp+(ep-sp)/2;
             if(sn>arr[mp])
             sp=mp+1;
             else if(sn<arr[mp])
@@ -25,7 +25,7 @@ public class binary
             System.out.println("Searched element found :");
             break;
         }
-                   }
+       }
         
     }
 }
