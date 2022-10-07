@@ -1,35 +1,47 @@
-import java.util.*;
-public class bubble_sort
+public class Main
 {
-    public static void main(String args[])
-    {
-        int ar[]=new int[10];
-        int c=1,i,t;
-        
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter 10 numbers:");
-        for(i=0;i<10;i++)
-        {
-            ar[i]=sc.nextInt();
-        }
-        while(c>0)
-        {
-            c=0;
-            for(i=0;i<9;i++)
-            {
-                if(ar[i]>ar[i+1])
-                {
-                    t=ar[i];
-                    ar[i]=ar[i+1];
-                    ar[i+1]=t;
-                    c=1;
-                }
-            }
-        }
-        System.out.println("The sorted array :");
-        for(i=0;i<10;i++)
-        {
-            System.out.println(ar[i]);
-        }
-    }
+   static void bubbleSort(int arr[], int n)
+   {
+       for (int i = 0; i < n-1; i++)
+       {  
+           Boolean swapped = false;
+           // last i elements are already at the correct position
+           for (int j = 0; j < n-i-1; j++)
+           {
+               if (arr[j] > arr[j+1])
+               {  
+                   // swap arr[j], arr[j+1]
+                   int temp = arr[j];
+                   arr[j] = arr[j+1];
+                   arr[j+1] = temp;
+                  
+                   swapped = true;
+               }
+           }
+           // If no swapping happened in the current pass, then break
+           if (swapped == false)
+               break;
+       }
+   }
+  
+   static void printArray(int arr[], int n)
+   {
+       for (int i = 0; i < n; i++)
+           System.out.print(arr[i] + " ");
+       System.out.println();
+   }
+  
+   public static void main(String args[])
+   {
+       int arr[] = {6, 3, 8, 9, 5};
+       int n = arr.length;
+      
+       System.out.print("Given Array: ");
+       printArray(arr, n);
+      
+       bubbleSort(arr, n);
+      
+       System.out.print("Sorted Array: ");
+       printArray(arr, n);
+   }
 }
